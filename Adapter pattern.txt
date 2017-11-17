@@ -1,0 +1,30 @@
+Adapter pattern 轉接器模式
+
+目的：
+轉化類別的介面成為另一個介面所預期的樣式。
+讓不相容的介面用轉接的方式合作相容
+
+有兩種方式
+1. Class adapter 用繼承的方式 inheritance
+2. Object Adapter 使用委託的方式 delegation
+由於java不能雙重繼承 因此使用2的方式
+
+方法1.
+因為Class Adapter繼承了Adaptee，所以可以輕易的override Adaptee。
+代碼較精簡。
+較難override Adaptee原本的行為。
+
+方法2.
+因為使用了組合技術，可以在run-time的改變欲轉換的Adaptee。
+代碼較多。
+
+
+實作：
+想用鴨子(Adaptee)來當企鵝(Target)
+做一個Adapter繼承企鵝(Target)
+在裡面寫企鵝(Target)override的function
+在此function裡面寫鴨子(Adaptee)的fucntion
+所以在外面使用企鵝(Target)時，就直接用企鵝的function，然後他裡面會做鴨子的function
+
+可用在都是相同用途上，譬如每個陣列或容器 都有下一個 上一個 ，因此可以使用Adapter pattern都包裝 最外面只需知道下一個
+或是啟動 關掉，多個東西同時需要啟動 就可以包裝起來
